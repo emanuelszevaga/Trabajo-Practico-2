@@ -5,7 +5,7 @@
         <title>Vivero MyM</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="shortcut icon" href="assets\imagenes\favicon1.png" type="favicon">
+        <link rel="shortcut icon" href="assets\imagenes\favicon1.png" type="image/png">
         <link rel="stylesheet" href="assets\css\style.css">
     </head>
     <body>
@@ -23,6 +23,8 @@
                 </div>
             </div>
         </div>
+
+        <!-- header en forma de burbuja -->
         <header>
             <div class="header-bubble">
                 <div class="section-logo container">
@@ -40,10 +42,10 @@
                             <div class="menu-productos">
                                 <a href="productos.html">Productos</a>
                                 <ul class="submenu">
-                                    <li><a href="productos.html">Ver todo</a></li>
-                                    <li><a href="#" data-filter="citricos">Cítricos</a></li>
-                                    <li><a href="#" data-filter="carozo">Frutales de carozo</a></li>
-                                    <li><a href="#" data-filter="tropicales">Frutas tropicales</a></li>
+                                    <li><a href="productos.html?categoria=todos">Ver todo</a></li>
+                                    <li><a href="productos.html?categoria=citricos">Cítricos</a></li>
+                                    <li><a href="productos.html?categoria=carozo">Frutales de carozo</a></li>
+                                    <li><a href="productos.html?categoria=tropicales">Frutas tropicales</a></li>
                                 </ul>
                             </div>
                             <a href="#">Quienes somos</a>
@@ -58,39 +60,41 @@
                 </div>
             </div>
         </header>
+
+        <!-- sección de carrusel -->
         <section class="hero-slider">
             <div class="slider-container">
-                <!-- Diapositiva 1 -->
+                <!-- diapositiva 1 -->
                 <div class="slide active">
                 <img src="assets\imagenes\slide1.jpg" alt="Vivero MyM">
                 <div class="slide-content">
                     <h2>Vivero MyM</h2>
                     <p>Tu rincón verde comienza acá</p>
-                    <a href="#productos" class="hero-btn">Comprar ahora</a>
+                    <a href="productos.html" class="hero-btn">Ver más</a>
                 </div>
                 </div>
 
-                <!-- Diapositiva 2 -->
+                <!-- diapositiva 2 -->
                 <div class="slide">
-                <img src="assets\imagenes\slide2.jpg" alt="Oferta Clave">
+                <img src="assets\imagenes\slide4.jpg" alt="Oferta Clave">
                 <div class="slide-content">
                     <h2>3 Cuotas sin interés</h2>
                     <p>Solo Comprando por la Web.</p>
-                    <a href="#productos" class="hero-btn">Ver más</a>
+                    <a href="productos.html" class="hero-btn">Ver más</a>
                 </div>
                 </div>
 
-                <!-- Diapositiva 3 -->
+                <!-- diapositiva 3 -->
                 <div class="slide">
                 <img src="assets\imagenes\slide3.jpg" alt="Variedades Nuevas">
                 <div class="slide-content">
                     <h2>Nuevas variedades</h2>
                     <p>Descrubí las nuevas variedades de citricos</p>
-                    <a href="#productos" class="hero-btn">Descubrir variedades</a>
+                    <a href="productos.html" class="hero-btn">Ver más</a>
                 </div>
                 </div>
 
-                <!-- Indicadores -->
+                <!-- indicadores para cambiar de diapositiva -->
                 <div class="slider-dots">
                     <span class="dot active"></span>
                     <span class="dot"></span>
@@ -99,6 +103,7 @@
             </div>
         </section>
 
+        <!-- sección de beneficios -->
         <section class="beneficios">
             <div class="container beneficios__grid">
                 <div class="beneficio-box">
@@ -118,6 +123,7 @@
             </div>
         </section>
 
+        <!-- sección productos -->
         <section class="productos">
             <h2>Productos</h2>
             <div class="container productos__grid">
@@ -199,6 +205,8 @@
                 </div>
             </div>
         </section>
+
+        <!-- footer -->
         <footer>
             <div class="section-footer container">
                 <div class="footer-section-logo">
@@ -223,7 +231,7 @@
                                 <a href="#">Política de privacidad</a>
                             </li>
                             <li>
-                                <a href="#">Carreras</a>
+                                <a href="#">Información</a>
                             </li>
                         </ul>
                     </div>
@@ -248,7 +256,7 @@
                         <h4>Suscribite al newsletter</h4>
                         <p>Descubrí todas las novedades</p>
                         <form class="newsletter-form">
-                            <input type="email" placeholder="Tu correo electrónico">
+                            <input type="email" placeholder="Tu correo">
                             <button type="submit"><i class="fa-solid fa-bell"></i></button>
                         </form>
                     </div>
@@ -256,39 +264,11 @@
             </div>
         </footer>
 
+        <!-- scripts de js -->
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-            // 1) Filtro de productos por data-filter (submenú)
-            document.querySelectorAll('.submenu a').forEach(link => {
-                link.addEventListener('click', e => {
-                e.preventDefault();
-                const filtro = link.getAttribute('data-filter');
-                const productos = document.querySelectorAll('.producto-card');
-
-                productos.forEach(card => {
-                    if (filtro === 'todos') {
-                    card.style.display = 'block';
-                    } else {
-                    card.style.display = card.classList.contains(filtro) ? 'block' : 'none';
-                    }
-                });
-
-                // Si estás en móvil, cerrar el nav cuando el usuario seleccione una opción (opcional)
-                const nav = document.getElementById('nav-center');
-                if (nav && nav.classList.contains('show')) nav.classList.remove('show');
-                });
-            });
-
-            // 2) Scroll suave al inicio (solo si existe el enlace)
-            const inicioLink = document.querySelector('a[href="#inicio"]');
-            if (inicioLink) {
-                inicioLink.addEventListener('click', e => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-            }
-
-            // 3) Menú hamburguesa toggle (seguro)
+            
+            // menú hamburguesa toggle
             const toggle = document.getElementById('menu-toggle');
             const nav = document.getElementById('nav-center');
             if (toggle && nav) {
@@ -297,7 +277,7 @@
                 });
             }
 
-            // 4) Submenú "Productos" en móviles (seguro)
+            // submenú "Productos" en móviles
             const menuProductos = document.querySelector('.menu-productos > a');
             if (menuProductos) {
                 menuProductos.addEventListener('click', (e) => {
@@ -309,9 +289,7 @@
                 });
             }
             });
-            </script>
-
-        <!-- Llamada al JS externo -->
+        </script>
         <script src="assets\js\slider.js"></script>
     </body>
 </html>

@@ -25,10 +25,9 @@ function showSlide(index) {
     });
     });
 
-// Auto-slide cada 6 segundos
+// auto-slide cada 6 segundos
 setInterval(nextSlide, 6000);
 
-// dentro de slider.js, después de definir setInterval:
     let slideInterval = setInterval(nextSlide, 6000);
 
     const sliderContainer = document.querySelector('.slider-container');
