@@ -5,6 +5,10 @@
         <title>Vivero MyM</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
+
         <link rel="shortcut icon" href="assets\imagenes\favicon1.png" type="image/png">
         <link rel="stylesheet" href="assets\css\style.css">
     </head>
@@ -119,6 +123,46 @@
                         <h3>COMPRÁ ONLINE LAS 24 HS</h3>
                         <p>En la comodidad de tu casa y retirá en el vivero.</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- sección productos mas vendidos (plugin)-->
+        <section class="productos-mas-vendidos">
+            <h2 class="ofertas-title">Productos más vendidos</h2>
+            
+            <div class="carrusel-productos container">
+                <div class="producto-slide">
+                    <img src="assets\imagenes\producto1.jpg" alt="Limón 4 estaciones">
+                    <h3>Limón 4 estaciones</h3>
+                    <p class="precio">$6.000</p>
+                </div>
+                <div class="producto-slide">
+                    <img src="assets\imagenes\producto2.jpg" alt="Naranja ombligo">
+                    <h3>Naranja ombligo</h3>
+                    <p class="precio">$6.000</p>
+                </div>
+                <div class="producto-slide">
+                    <img src="assets\imagenes\producto4.jpg" alt="Naranja jugo">
+                    <h3>Naranja de jugo</h3>
+                    <p class="precio">$6.000</p>
+                </div>
+                <div class="producto-slide">
+                    <img src="assets\imagenes\producto6.jpg" alt="Pomelo rosado">
+                    <h3>Pomelo rosado</h3>
+                    <p class="precio">$6.000</p>
+                </div>
+                <div class="producto-slide sin-stock" 
+                    data-nombre="Durazno" 
+                    data-precio="6000" 
+                    data-imagen="assets\imagenes\producto8.jpg"
+                    data-stock="sin-stock">
+
+                    <img src="assets\imagenes\producto8.jpg" alt="Durazno">
+                    <div class="etiqueta-stock">Sin stock</div>
+                    
+                    <h3>Durazno</h3>
+                    <p class="precio">$6.000</p>
                 </div>
             </div>
         </section>
@@ -395,5 +439,46 @@
         <!-- scripts de js -->
         <script src="assets\js\main.js"></script>
         <script src="assets\js\slider.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+        
+        <script>
+        $(document).ready(function(){
+            // Inicializa el carrusel en el contenedor: .carrusel-productos
+            $('.carrusel-productos').slick({
+                dots: true, // Muestra puntos de navegación
+                infinite: true, // Repetición infinita
+                speed: 300,
+                slidesToShow: 4, // Muestra 4 ítems en desktop
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                responsive: [  // Configuración responsive
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                        slidesToShow: 3,
+                        }
+                    },
+                    {
+                        breakpoint: 600,
+                        settings: {
+                        slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                        slidesToShow: 1,
+                        arrows: false // Oculta flechas en móvil
+                        }
+                    }
+                ]
+            });
+        });
+        </script>
+        
     </body>
 </html>
