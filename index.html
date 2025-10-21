@@ -157,10 +157,8 @@
                     data-precio="6000" 
                     data-imagen="assets\imagenes\producto8.jpg"
                     data-stock="sin-stock">
-
                     <img src="assets\imagenes\producto8.jpg" alt="Durazno">
                     <div class="etiqueta-stock">Sin stock</div>
-                    
                     <h3>Durazno</h3>
                     <p class="precio">$6.000</p>
                 </div>
@@ -440,14 +438,17 @@
         <script src="assets\js\main.js"></script>
         <script src="assets\js\slider.js"></script>
 
+        <!--librería de jquery-->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+        <!--Carga el archivo JavaScript de Slick Carousel.-->
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
         
         <script>
-        $(document).ready(function(){
+        $(document).ready(function(){ //Asegura que el código solo se ejecute cuando el navegador haya terminado de cargar todo el DOM.
+            
             // Inicializa el carrusel en el contenedor: .carrusel-productos
-            $('.carrusel-productos').slick({
+            $('.carrusel-productos').slick({ //selector de clase CSS de jQuery para encontrar el/los elemento/s HTML que tienen la clase carrusel-productos
                 dots: true, // Muestra puntos de navegación
                 infinite: true, // Repetición infinita
                 speed: 300,
